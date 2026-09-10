@@ -10,7 +10,13 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
+
+% Safe engine fallback handling for Tectonic / XeTeX
+\usepackage{iftex}
+\ifPDFTeX
 \input{glyphtounicode}
+\pdfgentounicode=1
+\fi
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -34,22 +40,20 @@
   \vspace{-4pt}\scshape\raggedright\large
 }{}{0em}{}[\titlerule \vspace{-5pt}]
 
-\pdfgentounicode=1
-
 % Custom commands
 \newcommand{\resumeItem}[1]{\item\small{#1}}
 \newcommand{\resumeSubheading}[4]{
   \item
   \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-    \textbf{#1} & #2 \\
-    \textit{\small #3} & \textit{\small #4} \\
+  \textbf{#1} & #2 \\
+  \textit{\small #3} & \textit{\small #4} \\
   \end{tabular*}
 }
 
 \newcommand{\resumeProjectHeading}[2]{
   \item
   \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-    \textbf{#1} & #2 \\
+  \textbf{#1} & #2 \\
   \end{tabular*}
 }
 
@@ -62,73 +66,66 @@
 \begin{document}
 
 %----------HEADING----------
-\begin{center}
-  \textbf{\Huge \scshape Sri Venkateswaran Srinivasan} \\ \vspace{2pt}
-  \small
-  +91 8903962661 $|$
-  \href{mailto:srivenkateswaran6002@gmail.com}{srivenkateswaran6002@gmail.com} $|$
-  \href{https://github.com/srivenkateswaran6002}{github.com/srivenkateswaran6002} $|$
-  \href{https://www.coursera.org/learner/srivenkateswaran6002}{coursera.org/learner/srivenkateswaran6002} $|$
-  \href{https://www.linkedin.com/in/srivenkateswaransrinivasan}{linkedin.com/in/srivenkateswaransrinivasan}
-
-\end{center}
-
-%-----------CAREER OBJECTIVE-----------
-% \section{Career Objective}
-% \small{
-% Motivated Computer Science undergraduate seeking to leverage strong programming skills and problem-solving ability to grow alongside experienced professionals while staying aligned with emerging technologies.
-% }
+  \begin{center}
+    \textbf{\Huge \scshape Sri Venkateswaran Srinivasan} \\ \vspace{2pt}
+    \small
+    +91 8903962661 $|$
+    \href{mailto:srivenkateswaran6002@gmail.com}{srivenkateswaran6002@gmail.com} $|$
+    \href{https://github.com/srivenkateswaran6002}{github.com/srivenkateswaran6002} $|$
+    \href{https://www.coursera.org/learner/srivenkateswaran6002}{coursera.org/learner/srivenkateswaran6002} $|$
+    \href{https://www.linkedin.com/in/srivenkateswaransrinivasan}{linkedin.com/in/srivenkateswaransrinivasan}
+  \end{center}
 
 %-----------EDUCATION-----------
-\section{Education}
-\resumeSubHeadingListStart
+  \section{Education}
+  \resumeSubHeadingListStart
   \resumeSubheading
-    {Sri Krishna College of Technology}{2024 -- 2028}
-    {Bachelor of Engineering in Computer Science and Engineering}{}
-\resumeSubHeadingListEnd
+  {Sri Krishna College of Technology}{2024 -- 2028}
+  {Bachelor of Engineering in Computer Science and Engineering}{}
+  \resumeSubHeadingListEnd
 
 %-----------PROJECTS-----------
-\section{Projects}
-\resumeSubHeadingListStart
+  \section{Projects}
+  \resumeSubHeadingListStart
 
-\resumeProjectHeading
+  \resumeProjectHeading
   {\textbf{Telegram Bot for YouTube Video \& Audio Downloading}}{}
-\resumeItemListStart
+  \resumeItemListStart
   \resumeItem{Built a Telegram bot to download YouTube videos and audio from user-provided URLs using \texttt{yt-dlp}.}
   \resumeItem{Supported multiple formats and resolutions with structured error handling for reliability.}
   \resumeItem{Improved performance using caching and organized file handling for faster delivery.}
-\resumeItemListEnd
+  \resumeItemListEnd
 
-\resumeProjectHeading
+  \resumeProjectHeading
   {\textbf{Prepared with Hygiene — AI-Powered Kitchen Certification System}}{}
-\resumeItemListStart
+  \resumeItemListStart
   \resumeItem{Architected a multi-agent AI system using LLMs (Gemini Flash \& Pro) for automated kitchen hygiene monitoring with transparent, verifiable certification for restaurants.}
   \resumeItem{Implemented three-tier debate mechanism (Vision Inspector → Policy Auditor → Final Judge) with Telegram Bot integration for real-time alerts and timestamped evidence logs.}
   \resumeItem{Built video processing pipeline (OpenCV/FFmpeg) with intelligent frame extraction and React frontend displaying AI-verified badges for food delivery platforms (Swiggy, Zomato).}
-\resumeItemListEnd
+  \resumeItemListEnd
 
-\resumeProjectHeading
+  \resumeProjectHeading
   {\textbf{Movie Search Application}}{}
-\resumeItemListStart
+  \resumeItemListStart
   \resumeItem{Built a movie search application enabling users to explore movies via keyword-based queries.}
   \resumeItem{Integrated external APIs to fetch movie metadata, ratings, and posters dynamically.}
   \resumeItem{Designed a responsive UI with efficient filtering and search result handling.}
-\resumeItemListEnd
+  \resumeItemListEnd
 
-\resumeProjectHeading
+  \resumeProjectHeading
   {\textbf{Event Management System (Django + Next.js)}}{}
-\resumeItemListStart
+  \resumeItemListStart
   \resumeItem{Built a full-stack System using Django REST Framework, PostgreSQL, and Next.js.}
   \resumeItem{Designed RESTful CRUD APIs with proper validation and structured error handling.}
   \resumeItem{Implemented a responsive frontend using Axios for API communication nad Tailwind CSS for styling.}
   \resumeItem{Enabled CORS for seamless frontend-backend integration.}
-\resumeItemListEnd
+  \resumeItemListEnd
 
-\resumeSubHeadingListEnd
+  \resumeSubHeadingListEnd
 
 %-----------TECHNICAL SKILLS-----------
-\section{Technical Skills}
-\begin{itemize}[leftmargin=0.15in, label={}]
+  \section{Technical Skills}
+  \begin{itemize}[leftmargin=0.15in, label={}]
 \small{
   \item \textbf{Languages:} C, C++, Python, Java, JavaScript, TypeScript
   \item \textbf{Web:} HTML, CSS, Bootstrap, React, React Router, NextJS, Tailwind CSS
@@ -139,27 +136,15 @@
   \item \textbf{AI Tools:} GitHub Copilot, Claude, Cursor, MidJourney, ElevenLabs
   \item \textbf{Cloud Services:} Vercel, Railway, Render
 }
-\end{itemize}
+  \end{itemize}
 
-\section{Core Competencies}
-\begin{itemize}[leftmargin=0.15in, label={}]
+  \section{Core Competencies}
+  \begin{itemize}[leftmargin=0.15in, label={}]
 \small{
   \item \textbf{AI/ML:} Multi-Agent Systems, LLM Orchestration, Prompt Engineering, Computer Vision, Object Detection, Video Processing
   \item \textbf{Full-Stack:} REST APIs, CRUD Operations, Full-Stack Development, Frontend-Backend Integration, Responsive Design
   \item \textbf{Software Engineering:} Object-Oriented Programming, Data Structures \& Algorithms, System Design, Automated Testing, Git Version Control, Docker Containerization
 }
-\end{itemize}
-
-% %-----------ADDITIONAL INFORMATION-----------
-% \section{Additional Information}
-% \begin{itemize}[leftmargin=0.15in, label={}]
-% \small{
-%   \item Experience with Generative AI development and AI-based content creation
-%   \item Build and experiment with mini-projects
-%   \item Participated in multiple college-level hackathons
-%   \item Strong leadership, communication, and problem-solving skills
-%   \item Passionate about drone cinematography and photography
-% }
-% \end{itemize}
+  \end{itemize}
 
 \end{document}
