@@ -342,3 +342,4 @@ TSWLatexianTemp*
 *.bbl
 
 .idea/*
+.DS_Store
